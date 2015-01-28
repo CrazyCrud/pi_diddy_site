@@ -1,0 +1,219 @@
+@font-face { 
+	font-family: $default_regular; 
+	src: url('fonts/steagal_regular.otf'); 
+	font-weight: 400; 
+	font-style: normal; 
+}
+
+@font-face { 
+	font-family: $default_bold; 
+	src: url('fonts/steagal_medium.otf'); 
+	font-weight: 700; 
+	font-style: normal; 
+}
+
+@font-face { 
+	font-family: $default_light; 
+	src: url('fonts/steagal_light.otf'); 
+	font-weight: 300; 
+	font-style: normal; 
+}
+
+@font-face { 
+	font-family: $script; 
+	src: url('fonts/lakesight.ttf'); 
+	font-weight: 400; 
+	font-style: normal; 
+}
+
+@font-face {
+	font-family: $icomoon;
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+html{
+	font-size: $default_font_size;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	cursor: default;
+	background: $background; 
+	background: url('img/texture.jpg') repeat;
+	color: $text;
+	box-sizing: border-box;
+	font-family: $default_regular;
+	font-weight: 400; 
+	font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: $default_bold;
+	font-weight: 700;
+}
+
+h1{
+	font-size: $positive_4;
+}
+
+h2{
+	font-size: $positive_2;
+}
+
+h3{
+	font-size: $positive_2;
+}
+
+h4, h5{
+	font-size: $positive_1;
+}
+
+ul{
+	list-style: none;
+}
+
+strong{
+	font-family: $default_bold;
+	font-weight: 700;
+}
+
+a.dest{
+	height: 0;
+	width: 0;
+}
+
+.clear{
+	clear: both;
+	height: 0;
+}
+
+.uppercase{
+	text-transform: uppercase;
+}
+
+.highlight{
+	//text-decoration: underline;
+}
+
+.primary-light{
+	color: $primary_light;
+}
+
+.secondary-light{
+	color: $secondary_light;
+}
+
+.required{
+	color: $primary_light;
+	font-size: $positive_2;
+	font-weight: 700;
+}
+
+.required-error{
+	display: block;
+	margin-top: $positive_1;
+	color: $primary_light;
+	font-weight: 300;
+	font-size: $negative_2;
+}
+
+.header{
+	display: block;
+	position: relative;
+	width: 100%;
+	margin-top: 56px;
+	margin-bottom: $positive_4;
+	padding: $positive_10 0 $positive_8 0;
+	font-size: 1rem;
+	background: url('img/header_small.png') center -6% no-repeat fixed;
+	z-index: 1;
+	overflow: hidden;
+	color: white;
+}
+
+.line{
+	display: block;
+	width: 0;
+	position: relative;
+	margin: 0 auto;
+	height: 0;
+	top: 70px;
+	border-top: 2px solid #18131e;
+	border-bottom: 2px solid #2f2a33;
+	z-index: -1;
+}
+
+@media screen and (min-width: $header_medium){
+	.header{
+		background: url('img/header_large.png') center -6% no-repeat fixed;
+	}
+
+	.line{
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: $skills_breakpoint){
+	.header{
+		font-size: $positive_3;
+	}
+
+	.line{
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 110em){
+	.line{
+		width: 62%;
+	}
+}
+
+.overlay{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 2px;
+	left: 0;
+	background: $background;
+	background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgoKPHJlY3Qgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzExMSI+PC9yZWN0Pgo8L3N2Zz4=") 0 0 repeat;
+	opacity: 0.7;
+	z-index: -1;
+}
+
+.header-text{
+	display: block;
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+	z-index: 2;
+	min-height: 208px;
+	max-width: 1700px;
+	p{
+		line-height: $positive_5;
+	}
+}
+
+.footer{
+	display: block;
+	padding: 0 $positive_1;
+	font-size: $negative_2;
+	font-family: $default_light;
+	font-weight: 200;
+	overflow: hidden;
+	p{
+		text-align: center;
+	}
+}
+
+@import 'forms', 'buttons', 'navigation';
