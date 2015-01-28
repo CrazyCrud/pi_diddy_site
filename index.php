@@ -10,7 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="css/sections/home.css">
 </head>
 <body>
-
+	<div class="index">
+		
+	</div>
 </body>
 <script type="text/javascript" src="js/vendor/jquery.js"></script>
 <script type="text/javascript" src="js/vendor/tappy.js"></script>

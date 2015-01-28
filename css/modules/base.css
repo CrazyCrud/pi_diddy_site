@@ -6,6 +6,8 @@ html{
 
 body{
 	width: 100%;
+	margin: 0;
+	padding: 0;
 	overflow-x: hidden; 
 }
 
@@ -19,4 +21,9 @@ em{
 
 strong{
 
+}
+
+.index{
+	width: 1368px;
+	margin: 0 auto;
 }
