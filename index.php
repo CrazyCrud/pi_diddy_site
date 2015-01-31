@@ -14,7 +14,9 @@
 		
 	</div>
 </body>
+<script type="text/javascript" src="js/vendor/kinect.js"></script>
 <script type="text/javascript" src="js/vendor/jquery.js"></script>
 <script type="text/javascript" src="js/vendor/tappy.js"></script>
+<script type="text/javascript" src="js/vendor/KinectController.js"></script>
 <script type="text/javascript" src="js/sections/home.js"></script>
 </html>
