@@ -124,6 +124,7 @@
     <Content Include="Microsoft.Kinect.Toolkit.csproj" />
     <Content Include="WebserverBasics-WPF.exe.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
