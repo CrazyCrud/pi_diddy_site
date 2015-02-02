@@ -1,0 +1,37 @@
+.user{
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	margin: 0 50px;
+	visibility: hidden;
+}
+
+#user-1{
+	background-color: red;
+}
+
+#user-2{
+	background-color: blue;
+}
+
+#user-3{
+	background-color: green;
+}
+
+#user-4{
+	background-color: yellow;
+}
+
+#user-5{
+	background-color: purple;
+}
+
+#user-6{
+	background-color: plum;
+}
+
+.active{
+	visibility: visible;
+}

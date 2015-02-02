@@ -30,8 +30,13 @@ var KinectController = (function(){
 	        "enabled": true,
 	    }
     };
-	this.elements = {
-
+	this.users = {
+		user1: $("#user-1"),
+		user2: $("#user-2"),
+		user3: $("#user-3"),
+		user4: $("#user-4"),
+		user5: $("#user-5"),
+		user6: $("#user-6")
 	};
 
 	var init = function(){
@@ -45,21 +50,33 @@ var KinectController = (function(){
 		});
 		that.sensor.addStreamFrameHandler(function(frame){
 			configError(frame.stream, null);
+			var skeletons = null;
 			switch(frame.stream){
 				case Kinect.SKELETON_STREAM_NAME:
+					//resetUser();
+					skeletons = new Array();
 					for (var iSkeleton = 0; iSkeleton < frame.skeletons.length; ++iSkeleton) {
 		                var skeleton = frame.skeletons[iSkeleton];
-		                skeleton.trackingId;
-		                skeleton.trackingState;
-		                skeleton.position;
+		                //skeleton.trackingId;
+		                //skeleton.trackingState;
+		                //skeleton.position;
 
 		                for (var iJoint = 0; iJoint < skeleton.joints.length; ++iJoint) {
 		                    var joint = skeleton.joints[iJoint];
-		                    joint.jointType;
-		                    joint.trackingState;
-		                    joint.position; 
+		                    //joint.jointType;
+		                    //joint.trackingState;
+		                    //joint.position; 
 		                }
+
+		                if(skeleton.trackingId > 0){
+		                	skeletons.push(parseFloat(skeleton.position.z));
+		                }
+
+		                //paintUser(skeleton, iSkeleton + 1);
 		                configError(skeleton, null);
+		            }
+		            if(skeletons.length > 0){
+		            	$(document).trigger("newDistances", { skeletons: skeletons});
 		            }
 		        break;
 			}
@@ -71,13 +88,13 @@ var KinectController = (function(){
 		            switch (event.eventType ) {
 		                // This event signals a change to who the primary interacting user is.
 		                case Kinect.PRIMARYUSERCHANGED_EVENT_TYPE:
-		                    event.oldValue;
-		                    event.newValue; // trackingId
+		                    var oldUser = event.oldValue;
+		                    var newUser = event.newValue; // trackingId
 		                    break;
 		                // This event signals a change to the states of the tracked users.
 		                case Kinect.USERSTATECHANGED_EVENT_TYPE:
-		                    event.userStates[0].id;
-		                    event.userStates[0].userState; // This is either "tracked" or "engaged".
+		                    var id = event.userStates[0].id;
+		                    var userState = event.userStates[0].userState; // This is either "tracked" or "engaged".
 		                    break;
 		            };
 		            break;
@@ -89,6 +106,23 @@ var KinectController = (function(){
 		            break;
 		   		};
        	});
+	},
+	resetUser = function(){
+		$(".active").removeClass('active');
+	},
+	paintUser = function(skeleton, id){
+		/*console.log(that.users);
+		if(skeleton.trackingId > 0){
+			that.users["user" + id].addClass('active');
+			that.users["user" + id].css('-webkit-transform', 'translateY(' + (parseFloat(skeleton.position.z) * 100) + 'px)');
+		}else{
+			that.users["user" + id].stop();
+			that.users["user" + id].css('-webkit-transform', 'translateY(0)');
+		}*/
+		if(skeleton.trackingId > 0){
+			$("body").stop(true, true);
+			$("body").animate({"zoom": skeleton.position.z}, 250);
+		}
 	},
 	onUserStatesChanged = function(newUserStates) {
         var newEngagedUser = findEngagedUser(newUserStates);
