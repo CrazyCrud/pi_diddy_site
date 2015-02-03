@@ -50,32 +50,9 @@ var KinectController = (function(){
 		var lazySkeletonFrame = _.throttle(onNewSkeletonFrame, _frameRate);
 
 		_sensor.addStreamFrameHandler(function(frame){
-			//var skeletons = null;
 			switch(frame.stream){
 				case Kinect.SKELETON_STREAM_NAME:
 					lazySkeletonFrame(frame);
-					/*
-					skeletons = new Array();
-					for (var iSkeleton = 0; iSkeleton < frame.skeletons.length; ++iSkeleton) {
-		                var skeleton = frame.skeletons[iSkeleton];
-		                //skeleton.trackingId;
-		                //skeleton.trackingState;
-		                //skeleton.position;
-
-		                for (var iJoint = 0; iJoint < skeleton.joints.length; ++iJoint) {
-		                    var joint = skeleton.joints[iJoint];
-		                    //joint.jointType;
-		                    //joint.trackingState;
-		                    //joint.position; 
-		                }
-
-		                if(skeleton.trackingId > 0){
-		                	skeletons.push(parseFloat(skeleton.position.z));
-		                }
-		                configError("Skeleton data: " + skeleton, null);
-		            }
-		            notify(skeletons);
-		            */
 		        	break;
 			}
 		});
