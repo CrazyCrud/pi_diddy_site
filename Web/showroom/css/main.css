@@ -1,0 +1,20 @@
+body {
+	height: 500%;
+	font-family: Playfair Display;
+}
+
+.animation {
+	position: fixed;
+}
+
+#welcome {
+	text-align: center;
+	font-size: 128px;
+	width: 1024px;
+}
+
+#info {
+	text-align: center;
+	font-size: 96px;
+	width: 1024px;
+}
