@@ -1,6 +1,8 @@
 var Animation = {
 
     ANIMATION_DURATION: 500,
+    MIN: 0,
+    MAX: 100,
 
     onScroll: function(){
         var scroll = $(document).scrollTop();
@@ -23,16 +25,39 @@ var Animation = {
     },
 
     setToStart: function(element){
-        if(element.frames.length == 0)return;
-        $("#"+element.id).css("left", element.frames[0][0]);
-        $("#"+element.id).css("top", element.frames[0][1]);
+        if(element.animation){
+            var pos = element.animation(Animation.MIN);
+        }else{
+            var length = element.frames.length;
+            if(length == 0)return;
+            var pos = [
+                element.frames[0][0],
+                element.frames[0][1]
+            ];
+        }
+        // animate to currenct position
+        $("#"+element.id).animate({
+            "left": pos[0],
+            "top": pos[1]
+        }, Animation.ANIMATION_DURATION);
     },
 
     setToEnd: function(element){
-        var length = element.frames.length;
-        if(length == 0)return;
-        $("#"+element.id).css("left", element.frames[length-1][0]);
-        $("#"+element.id).css("top", element.frames[length-1][1]);
+        if(element.animation){
+            var pos = element.animation(Animation.MAX);
+        }else{
+            var length = element.frames.length;
+            if(length == 0)return;
+            var pos = [
+                element.frames[length-1][0],
+                element.frames[length-1][1]
+            ];
+        }
+        // animate to currenct position
+        $("#"+element.id).animate({
+            "left": pos[0],
+            "top": pos[1]
+        }, Animation.ANIMATION_DURATION);
     },
 
     animate: function(element, scroll){
@@ -45,7 +70,7 @@ var Animation = {
         var to = element.toScroll-element.fromScroll;
         var percentage = scroll/to;
         if(element.animation){
-            var pos = element.animation(100*percentage);
+            var pos = element.animation(Animation.MAX*percentage);
             var x = pos[0];
             var y = pos[1];
         }else{
@@ -70,7 +95,7 @@ var Animation = {
         $(document).scroll(Animation.onScroll);
         Animation.onScroll();
     }
-}
+};
 
 Animation.elements = [
     {
@@ -100,10 +125,12 @@ Animation.elements = [
             [-768, -1024]
         ],
         animation: function(scroll){
-            var x = Math.pow(scroll-.5, 4);
-            var x = -x;
-            var x = x+512;
-            var y = 180;
+            var x = -0.0016768 *Math.pow(scroll-50, 4)+24;
+            if(scroll > 60){
+                var y = -0.334*Math.pow(scroll-60, 2)+180;
+            }else{
+                var y = 0.334*Math.pow(scroll-60, 2)+180;
+            }
             return [x, y];
         }
     }
