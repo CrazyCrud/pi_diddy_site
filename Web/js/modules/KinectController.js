@@ -98,7 +98,7 @@ var KinectController = (function(){
             if(skeleton.trackingId > 0){
             	skeletons.push(parseFloat(skeleton.position.z));
             }
-            configError("Skeleton data: " + skeleton, null);
+            configError(skeleton, null);
         }
         notify(skeletons);
 	},
@@ -166,8 +166,8 @@ var KinectController = (function(){
     		numberOfPeople: -1
     	};
     	if(skeletons.length > 0){
-    		output.closestDistance = parseFloat(Math.round(_.min(skeletons)));
-    		output.section = _distances[output.closestDistance];
+    		output.closestDistance = parseFloat(_.min(skeletons));
+    		output.section = _distances[Math.round(output.closestDistance)];
     		output.numberOfPeople = skeletons.length;
         }
         $(document).trigger("newDistance", output);
