@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebserverBasics-WPF", "WebserverBasics-WPF.csproj", "{8CA0A735-73B4-4EB6-A1B6-0B4C228D77D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\Samples\C#\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Kinect.Toolkit", "Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj", "{C6F9C31B-6130-4443-A5CC-EF0664552ECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.Kinect.Webserver", "..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\Samples\C#\Microsoft.Samples.Kinect.Webserver\Microsoft.Samples.Kinect.Webserver.csproj", "{9216E84F-1723-484E-8DE6-250B875F24B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.Kinect.Webserver", "Microsoft.Samples.Kinect.Webserver\Microsoft.Samples.Kinect.Webserver.csproj", "{9216E84F-1723-484E-8DE6-250B875F24B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
