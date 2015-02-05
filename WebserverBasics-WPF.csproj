@@ -128,11 +128,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\Samples\C#\Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj">
+    <ProjectReference Include="Microsoft.Kinect.Toolkit\Microsoft.Kinect.Toolkit.csproj">
       <Project>{c6f9c31b-6130-4443-a5cc-ef0664552ecd}</Project>
       <Name>Microsoft.Kinect.Toolkit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Program Files\Microsoft SDKs\Kinect\Developer Toolkit v1.8.0\Samples\C#\Microsoft.Samples.Kinect.Webserver\Microsoft.Samples.Kinect.Webserver.csproj">
+    <ProjectReference Include="Microsoft.Samples.Kinect.Webserver\Microsoft.Samples.Kinect.Webserver.csproj">
       <Project>{9216e84f-1723-484e-8de6-250b875f24b6}</Project>
       <Name>Microsoft.Samples.Kinect.Webserver</Name>
     </ProjectReference>
