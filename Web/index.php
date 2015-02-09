@@ -11,6 +11,9 @@
 	<body>
 		<div class="index">
 			<div class="state-1 color-1">
+				<div id="moving-element">
+
+				</div>
 				<div id="welcome">
 					Zu Verschenken<br/>
 					komm n&auml;her

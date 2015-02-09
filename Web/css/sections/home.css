@@ -43,6 +43,14 @@ div[class^='state'], div[class*=' state']{
 	font-size: 128px;
 }
 
+#moving-element{
+	height: 1056px;
+	width: 30px;
+	position: absolute;
+	left: -10px;
+	box-shadow: 10px 0 16px rgba(255, 255, 255, 0.3);
+}
+
 #info {
 	text-align: center;
 	font-size: 96px;
