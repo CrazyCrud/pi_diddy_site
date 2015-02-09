@@ -1,7 +1,9 @@
 var Home = (function(){
 	var that = this,
 	_maxDistance = 4.0,
+	_xRange = [2.2, -2.2],
 	_scrollSpeed = 100,
+	_resetTime = 3000,
 	_elements = {
 		html: $("html"),
 		body: $("body"),
@@ -27,10 +29,21 @@ var Home = (function(){
 			case "FAREST":
 				_elements.index.addClass('change-to-state-1');
 				break;
+			default:
+				noSkeleton();
 		}
 	},
 	clearStates = function(){
 		_elements.index.attr("class", "index");
+	},
+	checkForClick = function(){
+		if(false){
+			clearStates();
+		}
+	},
+	noSkeleton = function(){
+		var delay = _.bind(checkForClick);
+		_.delay(delay, _resetTime);
 	};
 
 	return {
