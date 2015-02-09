@@ -83,20 +83,24 @@ var KinectController = (function(){
 	onNewSkeletonFrame = function(frame){
 		var skeletons = new Array();
 		for (var iSkeleton = 0; iSkeleton < frame.skeletons.length; ++iSkeleton) {
-            var skeleton = frame.skeletons[iSkeleton];
+            var skeleton = frame.skeletons[iSkeleton],
+                skeletonPositions = {};
             //skeleton.trackingId;
             //skeleton.trackingState;
             //skeleton.position;
-
+            /*
             for (var iJoint = 0; iJoint < skeleton.joints.length; ++iJoint) {
-                var joint = skeleton.joints[iJoint];
+                //var joint = skeleton.joints[iJoint];
                 //joint.jointType;
                 //joint.trackingState;
                 //joint.position; 
             }
-
+            */
+            skeletonPositions.x = parseFloat(skeleton.position.x);
+            skeletonPositions.y = parseFloat(skeleton.position.y);
+            skeletonPositions.z = parseFloat(skeleton.position.z);
             if(skeleton.trackingId > 0){
-            	skeletons.push(parseFloat(skeleton.position.z));
+            	skeletons.push(skeletonPositions);
             }
             configError(skeleton, null);
         }
@@ -162,16 +166,19 @@ var KinectController = (function(){
     notify = function(skeletons){
     	output = {
     		closestDistance: -1,
+            xPosition: -1,
     		section: -1,
     		numberOfPeople: -1
     	};
-    	if(skeletons.length > 0){
-    		output.closestDistance = parseFloat(_.min(skeletons));
+        var numberOfPeople = skeletons.length;
+    	if(numberOfPeople > 0){
+            skeletons = _.sortBy(skeletons, function(skeleton){return skeleton.z});
+            output.closestDistance = _.first(skeletons).z;
+            output.xPosition = _.first(skeletons).x;
     		output.section = _distances[Math.round(output.closestDistance)];
-    		output.numberOfPeople = skeletons.length;
+    		output.numberOfPeople = numberOfPeople;
         }
         $(document).trigger("newDistance", output);
-        console.log("Trigger output");
     },
 	configError = function(statusText, errorData) {
         console.log((errorData !== null) ? JSON.stringify(errorData) : statusText);
