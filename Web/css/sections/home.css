@@ -67,6 +67,7 @@ div[class^='state'], div[class*=' state']{
 	padding-top: 6px;
 	padding-bottom: 4px;
 	height: 72px;
+	overflow: hidden;
 }
 
 .article .article-image-container {
