@@ -8,6 +8,10 @@
 	transition: all 1s;
 }
 
+body {
+	overflow: hidden;
+}
+
 div[class^='state'], div[class*=' state']{
 	display: block;
 	position: relative;
@@ -53,7 +57,7 @@ div[class^='state'], div[class*=' state']{
 .article {
 	width: 320px;
 	height: 420px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, .66);
 	box-shadow: 0px 0px 15px gray;
 	padding: 16px;
 	margin: 15px;
@@ -129,5 +133,26 @@ div[class^='state'], div[class*=' state']{
 	white-space: nowrap;
 	overflow-x: auto;
 	width: 1280px;
+	height: 480px;
 	margin-left: 24px;
+	padding-left: 128px;
+	padding-right: 128px;
+}
+
+#article-fade-right {
+	height: 480px;
+	width: 128px;
+	background: -webkit-linear-gradient(left, transparent, #3498db);
+	position: absolute;
+	margin-top: -480px;
+	right: 64px;
+}
+
+#article-fade-left {
+	height: 480px;
+	width: 128px;
+	background: -webkit-linear-gradient(left, #3498db, transparent);
+	position: absolute;
+	margin-top: -480px;
+	left: 24px;
 }

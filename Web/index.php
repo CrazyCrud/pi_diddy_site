@@ -30,6 +30,8 @@
 			<div class="state-3 color-3">
 				<div id="header">Ebay Kleinanzeigen!</div>
 				<div id="article-list"></div>
+				<div id="article-fade-left"></div>
+				<div id="article-fade-right"></div>
 			</div>
 			<div class="state-4 color-4"></div>
 			<div class="state-5 color-5"></div>
