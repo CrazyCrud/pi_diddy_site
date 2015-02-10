@@ -67,7 +67,7 @@ function convertMatchToObject($sale){
 function convertSingleMatchToObject($html){
 	$article_details = new ArticleDetails();
 	$article_details->name = $html->find('#viewad-title')[0]->innertext;
-	$article_details->contact = $html->find('phoneline-number')[0]->innertext;
+	$article_details->contact = $html->find('.phoneline-number')[0]->innertext;
 	$article_details->description = $html->find('#viewad-description-text')[0]->innertext;
 	return $article_details;
 }

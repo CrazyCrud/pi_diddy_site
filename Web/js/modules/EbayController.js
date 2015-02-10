@@ -91,15 +91,10 @@ var EbayView = {
 	onViewArticle: function(info){
 		EbayView.elements.articleDetailImage.css('background-image', 'url(' + info.imageSrc + ')');
 		$.get(EbayController.URL + '?single=' + info.url, function(data) {
-			console.log(data);
+			console.log(data.data);
+			data = data.data;
 			EbayView.elements.articleDetailMain.find('h1').html(data.name);
 			EbayView.elements.articleDetailDescription.html(data.description);
-		}).done(function(data){
-			console.log("Done", data);
-		}).fail(function(data){
-			console.log("Fail", data);
-		}).always(function(data){
-			console.log("Always", data);
 		});
 	}
 };
