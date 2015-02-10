@@ -2,17 +2,6 @@
 header('Content-Type: application/json; charset=utf-8');
 include('simple_html_dom.php');
 
-$pagenum = 1;
-if(isset($_GET["page"])){
-	$pagenum = $_GET["page"];
-}
-$city = "regensburg";
-if(isset($_GET["city"])){
-	$city = $_GET["city"];
-}
-
-$BASEURL = "http://kleinanzeigen.ebay.de";
-
 function loadHTML($url){
 	$html = file_get_html($url);
 	return $html;
@@ -32,6 +21,12 @@ class Article{
 	public $time="";
 	public $image="";
 	public $url="";
+}
+
+class ArticleDetails{ 
+	public $name="";
+	public $description="";
+	public $contact="";
 }
 
 function convertMatchToObject($sale){
@@ -69,25 +64,57 @@ function convertMatchToObject($sale){
 	return $article;
 }
 
-$page = "";
-if($pagenum > 1){
-	$page = "/seite:".$pagenum;
+function convertSingleMatchToObject($html){
+	$article_details = new ArticleDetails();
+	$article_details->name = $html->find('#viewad-title')[0]->innertext;
+	$article_details->contact = $html->find('phoneline-number')[0]->innertext;
+	$article_details->description = $html->find('#viewad-description-text')[0]->innertext;
+	return $article_details;
 }
 
-$url = $BASEURL."/anzeigen/s-zu-verschenken/$city$page/c192l7636";
-$content = loadHTML($url);
-$sales = findSales($content);
-$articles = array();
-foreach($sales as $sale){
-	$obj = convertMatchToObject($sale);
-	$articles[] = $obj;
+if(isset($_GET["single"])){
+	$url = trim($_GET["single"]);
+	$content = loadHTML($url);
+	$obj = convertSingleMatchToObject($content);
+
+	$result = array();
+	$result["url"] = $url;
+	$result["data"] = $obj;
+	echo json_encode($result, JSON_UNESCAPED_UNICODE);
+}else{
+	$pagenum = 1;
+	if(isset($_GET["page"])){
+		$pagenum = $_GET["page"];
+	}
+	$city = "regensburg";
+	if(isset($_GET["city"])){
+		$city = $_GET["city"];
+	}
+
+	$BASEURL = "http://kleinanzeigen.ebay.de";
+
+	$page = "";
+	if($pagenum > 1){
+		$page = "/seite:".$pagenum;
+	}
+
+	$url = $BASEURL."/anzeigen/s-zu-verschenken/$city$page/c192l7636";
+	$content = loadHTML($url);
+	$sales = findSales($content);
+	$articles = array();
+	foreach($sales as $sale){
+		$obj = convertMatchToObject($sale);
+		$articles[] = $obj;
+	}
+
+	$result = array();
+	$result["page"]=$pagenum;
+	$result["count"]=count($articles);
+	$result["data"]=$articles;
+	$result["city"]=$city;
+	echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }
 
-$result = array();
-$result["page"]=$pagenum;
-$result["count"]=count($articles);
-$result["data"]=$articles;
-$result["city"]=$city;
-echo json_encode($result, JSON_UNESCAPED_UNICODE);
+
 
 ?>

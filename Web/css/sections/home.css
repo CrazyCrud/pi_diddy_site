@@ -42,7 +42,12 @@ div.state-4{
 }
 
 .back{
+	position: absolute;
+	top: 20px;
+	left: 20px;
 	cursor: pointer;
+	width: 52px;
+	height: 52px;
 }
 
 .animation {
