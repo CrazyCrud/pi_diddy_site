@@ -37,6 +37,14 @@ div[class^='state'], div[class*=' state']{
 	margin-top: -3168px;
 }
 
+.state-2{
+	padding: 128px;
+}
+
+.back{
+	cursor: pointer;
+}
+
 .animation {
 	position: fixed;
 }

@@ -45,3 +45,7 @@ strong{
 .color-5{
 	background-color: #34495e;
 }
+
+.uppercase{
+	text-transform: uppercase;
+}
