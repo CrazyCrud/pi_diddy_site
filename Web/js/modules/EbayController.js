@@ -69,10 +69,11 @@ var EbayView = {
 		var $description = $('<div class="article-description">' + info.description + '</div>');
 		var $time = $('<div class="article-time">' + info.time + '</div>');
 		var $imageContainer = $('<div class="article-image-container"></div>');
-		var $image = $('<img src="' + info.imageSrc + '"></img>');
+		//var $image = $('<img src="' + info.imageSrc + '"></img>');
 		var $location = $('<div class="article-location">' + info.location + '</div>');
 
-		$imageContainer.append($image);
+		//$imageContainer.append($image);
+		$imageContainer.css('background-image', 'url(' + info.imageSrc + ')');
 		$container.append($name);
 		$container.append($imageContainer);
 		$container.append($description);
@@ -88,7 +89,8 @@ var EbayView = {
 	},
 
 	onViewArticle: function(info){
-		EbayView.elements.articleDetailImage.attr('src', info.imageSrc);
+		EbayView.elements.articleDetailMain.find('h1').html(info.name);
+		EbayView.elements.articleDetailImage.css('background-image', 'url(' + info.imageSrc + ')');
 		EbayView.elements.articleDetailDescription.html(info.description);
 	}
 };

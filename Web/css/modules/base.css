@@ -49,3 +49,10 @@ strong{
 .uppercase{
 	text-transform: uppercase;
 }
+
+.container{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}

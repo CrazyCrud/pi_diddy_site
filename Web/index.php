@@ -37,14 +37,16 @@
 				<div id="article-fade-right"></div>
 			</div>
 			<div class="state-4 color-4">
-				<div class="back uppercase">Back</div>
-				<div class="article-detail-view">
-					<div class="article-detail-image-container">
-						<img class="article-detail-image" src="">
-					</div>
-					<div class="article-detail-main">
-						<h1></h1>
-						<p class="article-detail-description"></p>
+				<div class="container">
+					<div class="back uppercase">Back</div>
+					<div class="article-detail-view">
+						<div class="article-detail-image">
+							
+						</div>
+						<div class="article-detail-main">
+							<h1></h1>
+							<p class="article-detail-description"></p>
+						</div>
 					</div>
 				</div>
 			</div>
