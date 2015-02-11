@@ -8,34 +8,42 @@ var Home = (function(){
 		html: $("html"),
 		body: $("body"),
 		index: $(".index"),
+		back: $(".back"),
 		movingElement: $("#moving-element")
 	};
 
 	var init = function(){
 		$(document).on("newDistance", onKinect);
+		_elements.back.click(function(event) {
+			changeToState(3);
+		});
 	},
 	onKinect = function(event, data){
 		console.log(data);
 		switch(data.section){
 			case "CLOSEST":
-				clearStates();
-				_elements.index.addClass('change-to-state-4');
+				changeToState(4);
 				break;
 			case "CLOSE":
-				clearStates();
-				_elements.inedx.addClass('change-to-state-3');
+				changeToState(3);
 				break;
 			case "FAR":
-				clearStates();
-				_elements.index.addClass('change-to-state-2');
+				changeToState(2);
 				break;
 			case "FAREST":
-				clearStates();
-				_elements.index.addClass('change-to-state-1');
+				changeToState(1);
 				visualizeMovement(data.xPosition);
 				break;
 			default:
 				noSkeleton();
+		}
+	},
+	changeToState = function(state){
+		if(_.isNaN(state) || state < 1){
+			return;
+		}else{
+			_elements.index.attr("class", "index");
+			_elements.index.addClass('change-to-state-' + state);
 		}
 	},
 	clearStates = function(){
@@ -65,7 +73,10 @@ var Home = (function(){
 	};
 
 	return {
-		init: init
+		init: init,
+		changeToState: changeToState,
+		clearStates: clearStates,
+		elements: _elements
 	};
 })();
 

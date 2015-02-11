@@ -33,6 +33,12 @@ var EbayController = {
 };
 
 var EbayView = {
+	elements: {
+		articleDetailView: $(".article-detail-view"),
+		articleDetailImage: $(".article-detail-image"),
+		articleDetailMain: $(".article-detail-main"),
+		articleDetailDescription: $(".article-detail-description")
+	},
 
 	fillExampleArticles: function(articles){
 		for(var i=0; i<articles.length; i++){
@@ -49,31 +55,48 @@ var EbayView = {
 	},
 
 	createView: function(article){
-		var url = article.url;
-		var name = article.name;
-		var location = article.location;
-		var description = article.description;
-		var time = article.time;
-		var imageSrc = article.image;
+		var info = {
+			url: article.url,
+			name: article.name,
+			location: article.location,
+			description: article.description,
+			time: article.time,
+			imageSrc: article.image
+		};
 
-		var $container = $('<div class="article" url="'+url+'"></div>');
-		var $name = $('<div class="article-name">'+name+'</div>');
-		var $description = $('<div class="article-description">'+description+'</div>');
-		var $time = $('<div class="article-time">'+time+'</div>');
+		var $container = $('<div class="article" url="' + info.url + '"></div>');
+		var $name = $('<div class="article-name">' + info.name + '</div>');
+		var $description = $('<div class="article-description">' + info.description + '</div>');
+		var $time = $('<div class="article-time">' + info.time + '</div>');
 		var $imageContainer = $('<div class="article-image-container"></div>');
-		var $image = $('<img src="'+imageSrc+'"></img>');
-		var $location = $('<div class="article-location">'+location+'</div>');
+		//var $image = $('<img src="' + info.imageSrc + '"></img>');
+		var $location = $('<div class="article-location">' + info.location + '</div>');
 
-		$imageContainer.append($image);
+		//$imageContainer.append($image);
+		$imageContainer.css('background-image', 'url(' + info.imageSrc + ')');
 		$container.append($name);
 		$container.append($imageContainer);
 		$container.append($description);
 		$container.append($time);
 		$container.append($location);
 
-		return $container;
-	}
+		$container.click(function(event) {
+			Home.changeToState(4);
+			EbayView.onViewArticle(info);
+		});;
 
+		return $container;
+	},
+
+	onViewArticle: function(info){
+		EbayView.elements.articleDetailImage.css('background-image', 'url(' + info.imageSrc + ')');
+		$.get(EbayController.URL + '?single=' + info.url, function(data) {
+			console.log(data.data);
+			data = data.data;
+			EbayView.elements.articleDetailMain.find('h1').html(data.name);
+			EbayView.elements.articleDetailDescription.html(data.description);
+		});
+	}
 };
 
 $(EbayController.init);

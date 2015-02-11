@@ -36,7 +36,20 @@
 				<div id="article-fade-left"></div>
 				<div id="article-fade-right"></div>
 			</div>
-			<div class="state-4 color-4"></div>
+			<div class="state-4 color-4">
+				<div class="back uppercase">Back</div>
+				<div class="container">
+					<div class="article-detail-view">
+						<div class="article-detail-image">
+							
+						</div>
+						<div class="article-detail-main">
+							<h1></h1>
+							<p class="article-detail-description"></p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="state-5 color-5"></div>
 		</div>
 	</body>
@@ -44,7 +57,11 @@
 	<script type="text/javascript" src="js/vendor/kinect.js"></script>
 	<script type="text/javascript" src="js/vendor/underscore.js"></script>
 	<script type="text/javascript" src="js/modules/KinectController.js"></script>
+<<<<<<< HEAD
 	<script type="text/javascript" src="js/modules/EbayController.js"></script>
 	<script type="text/javascript" src="js/modules/Animation.js"></script>
+=======
+>>>>>>> 44d22232532eebe044d26019fedd0cfae7d5740d
 	<script type="text/javascript" src="js/sections/home.js"></script>
+	<script type="text/javascript" src="js/modules/EbayController.js"></script>
 </html>
