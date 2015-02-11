@@ -4,6 +4,7 @@ var Home = (function(){
 	_xRange = [2.2, -2.2],
 	_scrollSpeed = 100,
 	_resetTime = 5000,
+	_resetId = -1,
 	_elements = {
 		html: $("html"),
 		body: $("body"),
@@ -16,6 +17,9 @@ var Home = (function(){
 		$(document).on("newDistance", onKinect);
 		_elements.back.click(function(event) {
 			changeToState(3);
+		});
+		_elements.html.click(function(event) {
+			clearTimer();
 		});
 	},
 	onKinect = function(event, data){
@@ -49,27 +53,14 @@ var Home = (function(){
 	clearStates = function(){
 		_elements.index.attr("class", "index");
 	},
-	visualizeMovement = function(xPosition){
-		var newPosition = (((_elements.index.width(0) / 2) / _xRange[0]) * xPosition) + Math.round(_elements.index.width(0) / 2);
-		_elements.movingElement.stop(true);
-		_elements.movingElement.animate({
-			'left': newPosition + 'px'
-			},
-			200, function() {
-					
-		});
-	},
-	checkForClick = function(){
-		if(false){
-			clearStates();
+	clearTimer = function(){
+		if(_resetId > 0){
+			window.clearTimeout(_resetId);
+			_resetId = -1;
 		}
 	},
 	noSkeleton = function(){
-		_elements.movingElement.css({
-			'left': '-30px'
-		});
-		var delay = _.bind(checkForClick);
-		_.delay(delay, _resetTime);
+		_.resetId = window.setTimeout(clearStates, _resetTime);
 	};
 
 	return {

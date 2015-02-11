@@ -11,9 +11,6 @@
 	<body>
 		<div class="index">
 			<div class="state-1 color-1">
-				<div id="moving-element">
-
-				</div>
 				<div id="welcome" class="css-animation">
 					Zu Verschenken<br/>
 					komm n&auml;her
@@ -57,11 +54,7 @@
 	<script type="text/javascript" src="js/vendor/kinect.js"></script>
 	<script type="text/javascript" src="js/vendor/underscore.js"></script>
 	<script type="text/javascript" src="js/modules/KinectController.js"></script>
-<<<<<<< HEAD
-	<script type="text/javascript" src="js/modules/EbayController.js"></script>
-	<script type="text/javascript" src="js/modules/Animation.js"></script>
-=======
->>>>>>> 44d22232532eebe044d26019fedd0cfae7d5740d
 	<script type="text/javascript" src="js/sections/home.js"></script>
 	<script type="text/javascript" src="js/modules/EbayController.js"></script>
+	<script type="text/javascript" src="js/modules/Animation.js"></script>
 </html>
