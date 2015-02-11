@@ -14,7 +14,7 @@
 				<div id="moving-element">
 
 				</div>
-				<div id="welcome">
+				<div id="welcome" class="css-animation">
 					Zu Verschenken<br/>
 					komm n&auml;her
 				</div>
@@ -45,5 +45,6 @@
 	<script type="text/javascript" src="js/vendor/underscore.js"></script>
 	<script type="text/javascript" src="js/modules/KinectController.js"></script>
 	<script type="text/javascript" src="js/modules/EbayController.js"></script>
+	<script type="text/javascript" src="js/modules/Animation.js"></script>
 	<script type="text/javascript" src="js/sections/home.js"></script>
 </html>

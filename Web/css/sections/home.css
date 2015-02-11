@@ -164,3 +164,17 @@ div[class^='state'], div[class*=' state']{
 	margin-top: -480px;
 	left: 24px;
 }
+
+.css-animation {
+	-webkit-transition: .2s ease-in-out;
+}
+
+.wiggle-in {
+	-webkit-transition: .2s ease-in-out;
+	-webkit-transform: rotate(3deg);
+}
+
+.wiggle-out {
+	-webkit-transition: .2s ease-in-out;
+	-webkit-transform: rotate(-3deg);
+}
