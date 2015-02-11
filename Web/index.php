@@ -23,11 +23,11 @@
 				<div id="info">
 					Interesse an gratis Sachen?
 				</div>
-				<div id="example-1">
+				<div class="example" id="example-1">
 				</div>
-				<div id="example-2">
+				<div class="example" id="example-2">
 				</div>
-				<div id="example-3">
+				<div class="example" id="example-3">
 				</div>
 			</div>
 			<div class="state-3 color-3">

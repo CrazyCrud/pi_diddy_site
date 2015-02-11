@@ -41,6 +41,7 @@ var EbayView = {
 	},
 
 	fillExampleArticles: function(articles){
+		$(".example").empty();
 		for(var i=0; i<articles.length; i++){
 			var article = EbayView.createView(articles[i]);
 			$("#example-"+(i+1)).append(article);
