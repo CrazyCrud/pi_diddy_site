@@ -181,6 +181,20 @@ div.state-4{
 	left: 24px;
 }
 
+.css-animation {
+	-webkit-transition: .2s ease-in-out;
+}
+
+.wiggle-in {
+	-webkit-transition: .2s ease-in-out;
+	-webkit-transform: rotate(3deg);
+}
+
+.wiggle-out {
+	-webkit-transition: .2s ease-in-out;
+	-webkit-transform: rotate(-3deg);
+}
+
 .state-4 .article-detail-image, .state-4 .article-detail-main{
 	position: absolute;
 	top: 0;
