@@ -223,3 +223,23 @@ div.state-4{
 .state-4 .article-detail-main{
 	right: 0;
 }
+
+.state-4 .article-detail-time, .state-4 .article-detail-place{
+	display: block;
+}
+
+.state-4 .article-detail-time{
+	float: left;
+}
+
+.state-4 .article-detail-place{
+	float: right;
+}
+
+#generate-qr{
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 466px;
+	font-size: 32px;
+}

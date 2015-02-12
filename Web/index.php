@@ -40,9 +40,18 @@
 						<div class="article-detail-image">
 							
 						</div>
+						<a href="#" id="generate-qr" class="button info" data-reveal-id="qr-modal">Artikel merken</a>
 						<div class="article-detail-main">
 							<h1></h1>
 							<p class="article-detail-description"></p>
+							<span class="article-detail-time uppercase"></span>
+							<span class="article-detail-place uppercase"></span>
+						</div>
+						<div id="qr-modal" class="reveal-modal" data-reveal>
+							<h2>Awesome. I have it.</h2>
+							<p class="lead">Your couch.  It is mine.</p>
+							<p class="text-center"><img id="qr" src=""></p>
+							<a class="close-reveal-modal">&#215;</a>
 						</div>
 					</div>
 				</div>
@@ -53,6 +62,7 @@
 	<script type="text/javascript" src="js/vendor/jquery.js"></script>
 	<script type="text/javascript" src="js/vendor/kinect.js"></script>
 	<script type="text/javascript" src="js/vendor/underscore.js"></script>
+	<script type="text/javascript" src="js/vendor/foundation.js"></script>
 	<script type="text/javascript" src="js/modules/KinectController.js"></script>
 	<script type="text/javascript" src="js/sections/home.js"></script>
 	<script type="text/javascript" src="js/modules/EbayController.js"></script>

@@ -37,7 +37,10 @@ var EbayView = {
 		articleDetailView: $(".article-detail-view"),
 		articleDetailImage: $(".article-detail-image"),
 		articleDetailMain: $(".article-detail-main"),
-		articleDetailDescription: $(".article-detail-description")
+		articleDetailDescription: $(".article-detail-description"),
+		articleDetailTime: $(".article-detail-time"),
+		articleDetailPlace: $(".article-detail-place"),
+		articleQR: $("#qr")
 	},
 
 	fillExampleArticles: function(articles){
@@ -92,10 +95,22 @@ var EbayView = {
 	onViewArticle: function(info){
 		EbayView.elements.articleDetailImage.css('background-image', 'url(' + info.imageSrc + ')');
 		$.get(EbayController.URL + '?single=' + info.url, function(data) {
-			console.log(data.data);
 			data = data.data;
 			EbayView.elements.articleDetailMain.find('h1').html(data.name);
 			EbayView.elements.articleDetailDescription.html(data.description);
+			EbayView.elements.articleDetailTime.html(info.time);
+			EbayView.elements.articleDetailPlace.html(info.location);
+			EbayView.elements.articleQR.attr('src', 'http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=' + info.url + '&qzone=1&margin=0&size=400x400&ecc=L');
+		}).fail(function(data){
+			data = data.data;
+			EbayView.elements.articleDetailMain.find('h1').html(data.name);
+			EbayView.elements.articleDetailDescription.html(data.description);
+			EbayView.elements.articleDetailTime.html(info.time);
+			EbayView.elements.articleDetailPlace.html(info.location);
+			EbayView.elements.articleQR.attr('src', 'http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=' + info.url + '&qzone=1&margin=0&size=400x400&ecc=L');
+		})
+		.always(function(data){
+
 		});
 	}
 };

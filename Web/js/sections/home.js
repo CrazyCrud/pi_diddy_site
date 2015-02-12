@@ -14,6 +14,7 @@ var Home = (function(){
 	};
 
 	var init = function(){
+		$(document).foundation();
 		$(document).on("newDistance", onKinect);
 		_elements.back.click(function(event) {
 			changeToState(3);
