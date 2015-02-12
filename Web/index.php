@@ -34,7 +34,7 @@
 				<div id="article-fade-right"></div>
 			</div>
 			<div class="state-4 color-4">
-				<div class="back uppercase">Back</div>
+				<div class="back uppercase"><a href="#" class="button tiny secondary">Back</a></div>
 				<div class="container">
 					<div class="article-detail-view">
 						<div class="article-detail-image">
