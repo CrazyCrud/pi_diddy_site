@@ -195,6 +195,27 @@ div.state-4{
 	-webkit-transform: rotate(-3deg);
 }
 
+.state-4 .loading-overlay{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #9b59b6;
+	text-align: center;
+}
+
+.state-4 .loading-overlay img{
+	position: relative;
+	width: 64px;
+	height: 64px;
+	margin-top: 260px;
+	background: transparent;
+}
+
 .state-4 .article-detail-image, .state-4 .article-detail-main{
 	position: absolute;
 	top: 0;
@@ -212,7 +233,7 @@ div.state-4{
 .state-4 .article-detail-image{
 	width: 436px;
 	height: 436px;
-	background-image: url('');
+	background-image: url('../../assets/img/placeholder.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;

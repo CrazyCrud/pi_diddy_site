@@ -40,8 +40,11 @@ var EbayView = {
 		articleDetailDescription: $(".article-detail-description"),
 		articleDetailTime: $(".article-detail-time"),
 		articleDetailPlace: $(".article-detail-place"),
-		articleQR: $("#qr")
+		articleQR: $("#qr"),
+		loadingOverlay: $(".loading-overlay")
 	},
+
+	placeholderImage: 'assets/img/placeholder.jpg',
 
 	fillExampleArticles: function(articles){
 		$(".example").empty();
@@ -71,10 +74,10 @@ var EbayView = {
 		var $container = $('<div class="article" url="' + info.url + '"></div>');
 		var $name = $('<div class="article-name">' + info.name + '</div>');
 		var $description = $('<div class="article-description">' + info.description + '</div>');
-		var $time = $('<div class="article-time">' + info.time + '</div>');
+		var $time = $('<div class="article-time label secondary">' + info.time + '</div>');
 		var $imageContainer = $('<div class="article-image-container"></div>');
 		//var $image = $('<img src="' + info.imageSrc + '"></img>');
-		var $location = $('<div class="article-location">' + info.location + '</div>');
+		var $location = $('<div class="article-location label secondary">' + info.location + '</div>');
 
 		//$imageContainer.append($image);
 		$imageContainer.css('background-image', 'url(' + info.imageSrc + ')');
@@ -85,6 +88,7 @@ var EbayView = {
 		$container.append($location);
 
 		$container.click(function(event) {
+			EbayView.elements.loadingOverlay.show();
 			Home.changeToState(4);
 			EbayView.onViewArticle(info);
 		});;
@@ -93,7 +97,12 @@ var EbayView = {
 	},
 
 	onViewArticle: function(info){
-		EbayView.elements.articleDetailImage.css('background-image', 'url(' + info.imageSrc + ')');
+		if(info.imageSrc.length < 1){
+			EbayView.elements.articleDetailImage.css('background-image', 'url(' + EbayView.placeholderImage + ')');
+		}else{
+			EbayView.elements.articleDetailImage.css('background-image', 'url(' + info.imageSrc + ')');
+		}
+		
 		$.get(EbayController.URL + '?single=' + info.url, function(data) {
 			data = data.data;
 			EbayView.elements.articleDetailMain.find('h1').html(data.name);
@@ -110,7 +119,9 @@ var EbayView = {
 			EbayView.elements.articleQR.attr('src', 'http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=' + info.url + '&qzone=1&margin=0&size=400x400&ecc=L');
 		})
 		.always(function(data){
-
+			EbayView.elements.loadingOverlay.fadeOut('slow', function() {
+				
+			});
 		});
 	}
 };

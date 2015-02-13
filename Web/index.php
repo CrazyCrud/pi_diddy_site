@@ -43,9 +43,9 @@
 						<a href="#" id="generate-qr" class="button info" data-reveal-id="qr-modal">Artikel merken</a>
 						<div class="article-detail-main">
 							<h1></h1>
-							<p class="article-detail-description"></p>
-							<span class="article-detail-time uppercase"></span>
-							<span class="article-detail-place uppercase"></span>
+							<blockquote class="article-detail-description"></blockquote>
+							<span class="article-detail-time label secondary uppercase"></span>
+							<span class="article-detail-place label secondary uppercase"></span>
 						</div>
 						<div id="qr-modal" class="reveal-modal" data-reveal>
 							<h2>Awesome. I have it.</h2>
@@ -53,6 +53,9 @@
 							<p class="text-center"><img id="qr" src=""></p>
 							<a class="close-reveal-modal">&#215;</a>
 						</div>
+					</div>
+					<div class="loading-overlay">
+						<img src="assets/img/loading.gif">
 					</div>
 				</div>
 			</div>
