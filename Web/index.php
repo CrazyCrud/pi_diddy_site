@@ -10,14 +10,14 @@
 	</head>
 	<body>
 		<div class="index">
-			<div class="state-1 color-1">
-				<div id="welcome" class="css-animation">
+			<div class="state-1 color-">
+				<div id="welcome" class="css-animation headline">
 					Zu Verschenken<br/>
 					komm n&auml;her
 				</div>
 			</div>
-			<div class="state-2 color-2">
-				<div id="info">
+			<div class="state-2 color-">
+				<div id="info" class="headline">
 					Interesse an gratis Sachen?
 				</div>
 				<div class="example" id="example-1">
@@ -27,13 +27,13 @@
 				<div class="example" id="example-3">
 				</div>
 			</div>
-			<div class="state-3 color-3">
-				<div id="header">Ebay Kleinanzeigen!</div>
+			<div class="state-3 color-">
+				<div id="header" class="headline">Ebay Kleinanzeigen!</div>
 				<div id="article-list"></div>
 				<div id="article-fade-left"></div>
 				<div id="article-fade-right"></div>
 			</div>
-			<div class="state-4 color-4">
+			<div class="state-4 color-">
 				<div class="back uppercase"><a href="#" class="button tiny secondary">Back</a></div>
 				<div class="container">
 					<div class="article-detail-view">
@@ -55,11 +55,11 @@
 						</div>
 					</div>
 					<div class="loading-overlay">
-						<img src="assets/img/loading.gif">
+						<img src="assets/img/loading_3.gif">
 					</div>
 				</div>
 			</div>
-			<div class="state-5 color-5"></div>
+			<div class="state-5 color-"></div>
 		</div>
 	</body>
 	<script type="text/javascript" src="js/vendor/jquery.js"></script>

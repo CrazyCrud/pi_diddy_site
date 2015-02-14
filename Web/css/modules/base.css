@@ -1,3 +1,14 @@
+@font-face {
+	font-family: "Bubblegum";
+	src: url("../../assets/fonts/bubblegum.otf");
+}
+
+@font-face {
+	font-family: "Londrina";
+	src: url("../../assets/fonts/londrina.otf");
+}
+
+
 html{
 	font-size: 20px;
 	font-style: normal;
@@ -12,6 +23,7 @@ body{
 	background-color: #fff;
 	width: 100%;
 	font-family: Roboto;
+	background: url('../../assets/img/background.png') repeat;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -27,7 +39,8 @@ strong{
 }
 
 .color-1{
-	background-color: #1abc9c;
+	background-color: #b1f6cb;
+	//background: url('../../assets/img/background.png') repeat;
 }
 
 .color-2{
@@ -59,4 +72,13 @@ strong{
 
 .text-center{
 	text-align: center;
+}
+
+.headline{
+	color: rgba(209,21,46,0.76);
+	font-family: "Bubblegum";
+    letter-spacing: .05em;
+    text-shadow: 
+		4px 4px 0px #e5e5d5, 
+		7px 7px 0px rgba(30, 20, 20, 0.2);
 }

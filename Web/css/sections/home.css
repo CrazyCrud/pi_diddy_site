@@ -8,10 +8,6 @@
 	transition: all 1s;
 }
 
-body {
-	overflow: hidden;
-}
-
 div[class^='state'], div[class*=' state']{
 	display: block;
 	position: relative;
@@ -57,7 +53,7 @@ div.state-4{
 #welcome {
 	text-align: center;
 	padding-top: 128px;
-	font-size: 128px;
+	font-size: 148px;
 }
 
 #moving-element{
@@ -149,8 +145,9 @@ div.state-4{
 }
 
 .state-3 #header {
-	font-size: 48px;
+	font-size: 80px;
 	padding: 32px;
+	padding-bottom: 48px;
 }
 
 #article-list {
@@ -166,7 +163,7 @@ div.state-4{
 #article-fade-right {
 	height: 480px;
 	width: 128px;
-	background: -webkit-linear-gradient(left, transparent, #3498db);
+	//background: -webkit-linear-gradient(left, transparent, #1abc9c);
 	position: absolute;
 	margin-top: -480px;
 	right: 64px;
@@ -175,7 +172,7 @@ div.state-4{
 #article-fade-left {
 	height: 480px;
 	width: 128px;
-	background: -webkit-linear-gradient(left, #3498db, transparent);
+	//background: -webkit-linear-gradient(left, #1abc9c, transparent);
 	position: absolute;
 	margin-top: -480px;
 	left: 24px;
@@ -204,7 +201,7 @@ div.state-4{
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #9b59b6;
+	background: url('../../assets/img/background.png') repeat;
 	text-align: center;
 }
 
@@ -224,10 +221,17 @@ div.state-4{
 .state-4 .article-detail-main{
 	width: 636px;
 	height: 636px;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 28px;
+	border: 2px rgba(20, 20, 20, 0.08) solid;
 }
 
 .state-4 .article-detail-main h1{
+	//font-family: "Bubblegum";
+	font-weight: 700;
+	color: #444;
 	margin-top: 0;
+	margin-bottom: 22px;
 }
 
 .state-4 .article-detail-image{
@@ -249,6 +253,7 @@ div.state-4{
 	max-height: 340px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	padding-bottom: 12px;
 }
 
 .state-4 .article-detail-time, .state-4 .article-detail-place{
@@ -271,6 +276,6 @@ div.state-4{
 	display: block;
 	position: absolute;
 	left: 0;
-	top: 466px;
+	top: 480px;
 	font-size: 32px;
 }
