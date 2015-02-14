@@ -3,6 +3,7 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/vendor/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/vendor/foundation.css">
+		<link rel="stylesheet" type="text/css" href="css/vendor/jqueryui.css">
 		<link rel="stylesheet" type="text/css" href="css/vendor/overrides.css">
 		<link rel="stylesheet" type="text/css" href="css/modules/base.css">
 		<link rel="stylesheet" type="text/css" href="css/sections/home.css">
@@ -29,7 +30,12 @@
 			</div>
 			<div class="state-3 color-">
 				<div id="header" class="headline">Ebay Kleinanzeigen!</div>
-				<div id="article-list"></div>
+				<div id="article-list">
+					<div class="articles-container"></div>
+				</div>
+				<div class="article-slider">
+					<div id="slider"></div>
+				</div>
 				<div id="article-fade-left"></div>
 				<div id="article-fade-right"></div>
 			</div>
@@ -55,14 +61,14 @@
 						</div>
 					</div>
 					<div class="loading-overlay">
-						<img src="assets/img/loading_3.gif">
+						<img src="assets/img/loading.png">
 					</div>
 				</div>
 			</div>
-			<div class="state-5 color-"></div>
 		</div>
 	</body>
 	<script type="text/javascript" src="js/vendor/jquery.js"></script>
+	<script type="text/javascript" src="js/vendor/jqueryui.js"></script>
 	<script type="text/javascript" src="js/vendor/kinect.js"></script>
 	<script type="text/javascript" src="js/vendor/underscore.js"></script>
 	<script type="text/javascript" src="js/vendor/foundation.js"></script>

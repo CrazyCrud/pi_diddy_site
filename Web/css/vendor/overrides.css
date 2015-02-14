@@ -8,3 +8,10 @@
 	color: #eee !important;
 }
 
+.ui-slider{
+	background-color: #e7e7e7;
+}
+
+.ui-slider-handle{
+	background-color: #555;
+}

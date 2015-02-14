@@ -55,10 +55,23 @@ var EbayView = {
 	},
 
 	fillArticleList: function(articles){
-		$("#article-list").empty();
+		$(".articles-container").empty();
 		for(var i=0; i<articles.length; i++){
-			$("#article-list").append(EbayView.createView(articles[i]));
+			$(".articles-container").append(EbayView.createView(articles[i]));
 		}
+		var max = $(".articles-container").width() - $("#article-list").width();
+		$("#slider").slider({
+			animate: true,
+			value: 0,
+			min: 0,
+			max: max,
+			orientation: "horizontal",
+			change: function( event, ui ) {
+				console.log(ui.value);
+				$(".articles-container").animate({'left': '-' + ui.value + 'px'}, 700)
+				//$(".articles-container").css('left', '-' + ui.value + 'px');
+			}
+		});
 	},
 
 	createView: function(article){

@@ -151,13 +151,28 @@ div.state-4{
 }
 
 #article-list {
+	position: relative;
 	white-space: nowrap;
-	overflow-x: auto;
+	overflow: hidden;
 	width: 1280px;
 	height: 480px;
 	margin-left: 24px;
 	padding-left: 128px;
 	padding-right: 128px;
+}
+
+.articles-container{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.article-slider{
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	width: 920px;
+	height: 30px;
 }
 
 #article-fade-right {
@@ -211,6 +226,21 @@ div.state-4{
 	height: 64px;
 	margin-top: 260px;
 	background: transparent;
+	-webkit-animation: spin 2s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { 
+	-moz-transform:rotate(360deg); 
+	}
+}
+@-webkit-keyframes spin { 100% { 
+	-webkit-transform:rotate(360deg); 
+	}
+}
+@keyframes spin { 100% {
+	-webkit-transform:rotate(360deg);
+	transform:rotate(360deg);
+	}
 }
 
 .state-4 .article-detail-image, .state-4 .article-detail-main{
