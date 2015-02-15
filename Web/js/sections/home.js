@@ -10,7 +10,8 @@ var Home = (function(){
 		body: $("body"),
 		index: $(".index"),
 		back: $(".back"),
-		movingElement: $("#moving-element")
+		movingElement: $("#moving-element"),
+		qr: $("#generate-qr")
 	};
 
 	var init = function(){
@@ -18,6 +19,11 @@ var Home = (function(){
 		$(document).on("newDistance", onKinect);
 		_elements.back.click(function(event) {
 			changeToState(3);
+		});
+		_elements.qr.click(function(event) {
+			FileWriter.write({
+                qr: 1
+            });
 		});
 		_elements.html.click(function(event) {
 			clearTimer();

@@ -72,6 +72,7 @@
 	<script type="text/javascript" src="js/vendor/kinect.js"></script>
 	<script type="text/javascript" src="js/vendor/underscore.js"></script>
 	<script type="text/javascript" src="js/vendor/foundation.js"></script>
+	<script type="text/javascript" src="js/modules/FileWriter.js"></script>
 	<script type="text/javascript" src="js/modules/KinectController.js"></script>
 	<script type="text/javascript" src="js/sections/home.js"></script>
 	<script type="text/javascript" src="js/modules/EbayController.js"></script>

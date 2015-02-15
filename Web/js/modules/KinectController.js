@@ -99,6 +99,7 @@ var KinectController = (function(){
             skeletonPositions.x = parseFloat(skeleton.position.x);
             skeletonPositions.y = parseFloat(skeleton.position.y);
             skeletonPositions.z = parseFloat(skeleton.position.z);
+            skeletonPositions.trackingId = skeleton.trackingId;
             if(skeleton.trackingId > 0){
             	skeletons.push(skeletonPositions);
             }
@@ -177,6 +178,11 @@ var KinectController = (function(){
             output.xPosition = _.first(skeletons).x;
     		output.section = _distances[Math.round(output.closestDistance)];
     		output.numberOfPeople = numberOfPeople;
+
+            FileWriter.write({
+                trackingId: _.first(skeletons).trackingId,
+                distance: output.closestDistance
+            });
         }
         $(document).trigger("newDistance", output);
     },
