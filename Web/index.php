@@ -16,6 +16,7 @@
 					Zu Verschenken<br/>
 					komm n&auml;her
 				</div>
+				<img id="present-img" src="assets/img/present.png">
 			</div>
 			<div class="state-2 color-">
 				<div id="info" class="headline">
@@ -40,7 +41,7 @@
 				<div id="article-fade-right"></div>
 			</div>
 			<div class="state-4 color-">
-				<div class="back uppercase"><a href="#" class="button tiny secondary">Back</a></div>
+				<div class="back uppercase"><a href="#" class="button tiny secondary">Zurück</a></div>
 				<div class="container">
 					<div class="article-detail-view">
 						<div class="article-detail-image">

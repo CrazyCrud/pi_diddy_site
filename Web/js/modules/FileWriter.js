@@ -13,8 +13,10 @@ var FileWriter = (function(){
 			_fileEntry = fileEntry;
 			_fileEntry.createWriter(function(fileWriter){
 				_fileWriter = fileWriter;
-				var blob = new Blob(['time,trackindId,distance,qr\n'], {type: 'text/plain'});
-				_fileWriter.write(blob);
+				if(_fileWriter.length < 1){
+					var blob = new Blob(['time;trackindId;distance;qr\n'], {type: 'text/plain'});
+					_fileWriter.write(blob);
+				}
 				_fileWriter.onwriteend = function(e){
 					console.log("Write completed");
 				};
@@ -33,7 +35,7 @@ var FileWriter = (function(){
 			data.qr = 0 || data.qr;
 			var date = new Date(),
 				timeStamp = date.getDate() + "-" + date.getSeconds(),
-				row = timeStamp + "," + data.trackingId + "," + data.distance + "," + data.qr,
+				row = timeStamp + ";" + data.trackingId + ";" + data.distance + ";" + data.qr,
 				blob = new Blob([row + '\n'], {type: 'text/plain'});
 			_fileWriter.seek(_fileWriter.length);
 			_fileWriter.write(blob);

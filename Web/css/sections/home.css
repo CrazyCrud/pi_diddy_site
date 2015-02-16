@@ -71,6 +71,15 @@ div.state-4{
 	padding-top: 32px;
 }
 
+#present-img{
+	display: block;
+	position: absolute;
+	max-width: 30%;
+	right: -40px;
+	top: 480px;
+	z-index: -1;
+}
+
 .article {
 	width: 320px;
 	height: 420px;
@@ -145,8 +154,9 @@ div.state-4{
 }
 
 .state-3 #header {
+	width: 1024px;
+	text-align: center;
 	font-size: 80px;
-	padding: 32px;
 	padding-bottom: 48px;
 }
 
@@ -182,6 +192,7 @@ div.state-4{
 	position: absolute;
 	margin-top: -480px;
 	right: 64px;
+	pointer-events: none;
 }
 
 #article-fade-left {
@@ -191,6 +202,7 @@ div.state-4{
 	position: absolute;
 	margin-top: -480px;
 	left: 24px;
+	pointer-events: none;
 }
 
 .css-animation {
