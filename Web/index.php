@@ -11,7 +11,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<div class="index interactive">
+		<div class="index">
 			<div class="state-1">
 				<div class="forward uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-down"></i></a></div>
 				<div id="welcome" class="css-animation headline">
@@ -59,7 +59,7 @@
 							<span class="article-detail-place label secondary uppercase"></span>
 						</div>
 						<div id="qr-modal" class="reveal-modal" data-reveal>
-							<h2>Awesome. I have it.</h2>
+							<h2>Hier der Link zu dem Angebot.</h2>
 							<p class="lead">Your couch.  It is mine.</p>
 							<p class="text-center"><img id="qr" src=""></p>
 							<a class="close-reveal-modal">&#215;</a>

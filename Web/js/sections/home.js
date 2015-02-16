@@ -17,6 +17,15 @@ var Home = (function(){
 
 	var init = function(){
 		$(document).foundation();
+		_elements.body.on({
+		    'mousewheel': function(e) {
+		        if (e.target.id == 'el'){
+		        	return;
+		        }
+		        e.preventDefault();
+		        e.stopPropagation();
+		    }
+		});
 		$(document).on("newDistance", onKinect);
 		_elements.back.click(function(event) {
 			var stateDOM = $(this).parents("div[class^='state']");
