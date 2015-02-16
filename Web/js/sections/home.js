@@ -10,6 +10,7 @@ var Home = (function(){
 		body: $("body"),
 		index: $(".index"),
 		back: $(".back"),
+		forward: $(".forward"),
 		movingElement: $("#moving-element"),
 		qr: $("#generate-qr")
 	};
@@ -18,7 +19,14 @@ var Home = (function(){
 		$(document).foundation();
 		$(document).on("newDistance", onKinect);
 		_elements.back.click(function(event) {
-			changeToState(3);
+			var stateDOM = $(this).parents("div[class^='state']");
+			var currentState = parseInt(stateDOM.attr('class').replace(/state-/i, ""));
+			changeToState(currentState - 1);
+		});
+		_elements.forward.click(function(event) {
+			var stateDOM = $(this).parents("div[class^='state']");
+			var currentState = parseInt(stateDOM.attr('class').replace(/state-/i, ""));
+			changeToState(currentState + 1);
 		});
 		_elements.qr.click(function(event) {
 			FileWriter.write({
@@ -31,19 +39,27 @@ var Home = (function(){
 	},
 	onKinect = function(event, data){
 		console.log(data);
+		var isInteractive = _elements.index.hasClass('interactive');
 		switch(data.section){
 			case "CLOSEST":
-				changeToState(4);
+				if(isInteractive){
+					changeToState(4);
+				}
 				break;
 			case "CLOSE":
-				changeToState(3);
+				if(isInteractive){
+					changeToState(3);
+				}
 				break;
 			case "FAR":
-				changeToState(2);
+				if(isInteractive){
+					changeToState(2);
+				}
 				break;
 			case "FAREST":
-				changeToState(1);
-				visualizeMovement(data.xPosition);
+				if(isInteractive){
+					changeToState(1);
+				}
 				break;
 			default:
 				noSkeleton();
@@ -53,12 +69,19 @@ var Home = (function(){
 		if(_.isNaN(state) || state < 1){
 			return;
 		}else{
-			_elements.index.attr("class", "index");
-			_elements.index.addClass('change-to-state-' + state);
+			if(_elements.index.hasClass('interactive')){
+				_elements.index.attr("class", "index interactive" + " change-to-state-" + state);
+			}else{
+				_elements.index.attr("class", "index" + " change-to-state-" + state);
+			}
 		}
 	},
 	clearStates = function(){
-		_elements.index.attr("class", "index");
+		if(_elements.index.hasClass('interactive')){
+			_elements.index.attr("class", "index interactive");
+		}else{
+			_elements.index.attr("class", "index");
+		}
 	},
 	clearTimer = function(){
 		if(_resetId > 0){

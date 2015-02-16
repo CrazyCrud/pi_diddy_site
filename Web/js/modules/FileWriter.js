@@ -14,7 +14,7 @@ var FileWriter = (function(){
 			_fileEntry.createWriter(function(fileWriter){
 				_fileWriter = fileWriter;
 				if(_fileWriter.length < 1){
-					var blob = new Blob(['time;trackindId;distance;qr\n'], {type: 'text/plain'});
+					var blob = new Blob(['time;interactive;trackindId;distance;qr\n'], {type: 'text/plain'});
 					_fileWriter.write(blob);
 				}
 				_fileWriter.onwriteend = function(e){
@@ -30,12 +30,13 @@ var FileWriter = (function(){
 		if(_.isNull(_fileWriter) || _.isNull(data)){
 			return;
 		}else{
-			data.trackingId = 0 || data.trackingId;
-			data.distance = 0 || data.distance;
-			data.qr = 0 || data.qr;
+			data.trackingId = data.trackingId || 0;
+			data.distance = data.distance || 0;
+			data.qr = data.qr || 0;
+			data.interactive = $(".index").hasClass('interactive')? 1: 0;
 			var date = new Date(),
 				timeStamp = date.getDate() + "-" + date.getSeconds(),
-				row = timeStamp + ";" + data.trackingId + ";" + data.distance + ";" + data.qr,
+				row = timeStamp + ";" + data.interactive + ";" + data.trackingId + ";" + data.distance + ";" + data.qr,
 				blob = new Blob([row + '\n'], {type: 'text/plain'});
 			_fileWriter.seek(_fileWriter.length);
 			_fileWriter.write(blob);
@@ -74,4 +75,4 @@ var FileWriter = (function(){
 FileWriter.init();
 
 // filesystem:http://localhost/persistent/15_1.txt
-// time, trackingId, distance, qr
+// time, interactive, trackingId, distance, qr

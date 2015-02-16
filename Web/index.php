@@ -3,6 +3,7 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/vendor/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/vendor/foundation.css">
+		<link rel="stylesheet" type="text/css" href="css/vendor/foundation_icons.css">
 		<link rel="stylesheet" type="text/css" href="css/vendor/jqueryui.css">
 		<link rel="stylesheet" type="text/css" href="css/vendor/overrides.css">
 		<link rel="stylesheet" type="text/css" href="css/modules/base.css">
@@ -10,15 +11,17 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<div class="index">
-			<div class="state-1 color-">
+		<div class="index interactive">
+			<div class="state-1">
+				<div class="forward uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-down"></i></a></div>
 				<div id="welcome" class="css-animation headline">
 					Zu Verschenken<br/>
 					komm n&auml;her
 				</div>
 				<img id="present-img" src="assets/img/present.png">
 			</div>
-			<div class="state-2 color-">
+			<div class="state-2">
+				<div class="forward uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-down"></i></a></div>
 				<div id="info" class="headline">
 					Interesse an gratis Sachen?
 				</div>
@@ -29,7 +32,8 @@
 				<div class="example" id="example-3">
 				</div>
 			</div>
-			<div class="state-3 color-">
+			<div class="state-3">
+				<div class="back uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-left"></i></a></div>
 				<div id="header" class="headline">Ebay Kleinanzeigen!</div>
 				<div id="article-list">
 					<div class="articles-container"></div>
@@ -40,8 +44,8 @@
 				<div id="article-fade-left"></div>
 				<div id="article-fade-right"></div>
 			</div>
-			<div class="state-4 color-">
-				<div class="back uppercase"><a href="#" class="button tiny secondary">Zurück</a></div>
+			<div class="state-4">
+				<div class="back uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-left"></i></a></div>
 				<div class="container">
 					<div class="article-detail-view">
 						<div class="article-detail-image">

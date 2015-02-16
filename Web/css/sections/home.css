@@ -33,6 +33,18 @@ div[class^='state'], div[class*=' state']{
 	margin-top: -3168px;
 }
 
+.interactive .state-3 .back{
+	display: none;
+}
+
+.interactive .state-1 .forward{
+	display: none;
+}
+
+.interactive .state-2 .forward{
+	display: none;
+}
+
 div.state-4{
 	padding: 92px 128px 0px;
 }
@@ -41,6 +53,15 @@ div.state-4{
 	position: absolute;
 	top: 20px;
 	left: 20px;
+	cursor: pointer;
+	width: 52px;
+	height: 52px;
+}
+
+.forward{
+	position: absolute;
+	top: 700px;
+	left: 657px;
 	cursor: pointer;
 	width: 52px;
 	height: 52px;
@@ -292,7 +313,7 @@ div.state-4{
 }
 
 .state-4 .article-detail-description{
-	max-height: 340px;
+	max-height: 280px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	padding-bottom: 12px;
