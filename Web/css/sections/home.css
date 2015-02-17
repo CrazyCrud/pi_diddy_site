@@ -148,14 +148,15 @@ div.state-4{
 
 #example-1{
 	position: absolute;
-	left: 260px;
-	margin-top: 72px;
+	left: 200px;
+	margin-top: 30px;
 	-webkit-transform: rotate(7deg);
 }
 
 #example-2{
 	position: absolute;
 	left: 620px;
+	top: 290px;
 	-webkit-transform: rotate(-1deg);
 }
 
