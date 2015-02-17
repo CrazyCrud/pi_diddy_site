@@ -100,12 +100,20 @@ var Home = (function(){
 	},
 	noSkeleton = function(){
 		_.resetId = window.setTimeout(clearStates, _resetTime);
+	},
+	changeInteractivity = function(){
+		if(_elements.index.hasClass('interactive')){
+			window.location.href = "index.php";
+		}else{
+			window.location.href = "index.php?interactive=true";
+		}
 	};
 
 	return {
 		init: init,
 		changeToState: changeToState,
 		clearStates: clearStates,
+		changeInteractivity: changeInteractivity,
 		elements: _elements
 	};
 })();
