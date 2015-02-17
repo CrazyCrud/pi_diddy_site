@@ -86,6 +86,7 @@ var Home = (function(){
 		}
 	},
 	clearStates = function(){
+		// Page reload here after 1 hour
 		if(_elements.index.hasClass('interactive')){
 			_elements.index.attr("class", "index interactive");
 		}else{

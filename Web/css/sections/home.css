@@ -169,6 +169,7 @@ div.state-4{
 
 .state-2 .article{
 	height: 320px;
+	pointer-events: none;
 }
 
 .state-2 .article .article-description{
