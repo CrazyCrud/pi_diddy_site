@@ -93,7 +93,12 @@ var EbayView = {
 		var $location = $('<div class="article-location label secondary">' + info.location + '</div>');
 
 		//$imageContainer.append($image);
-		$imageContainer.css('background-image', 'url(' + info.imageSrc + ')');
+		if(info.imageSrc.length < 1){
+			$imageContainer.css('background-image', 'url(' + EbayView.placeholderImage + ')');
+		}else{
+			$imageContainer.css('background-image', 'url(' + info.imageSrc + ')');
+		}
+
 		$container.append($name);
 		$container.append($imageContainer);
 		$container.append($description);
