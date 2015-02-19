@@ -59,7 +59,7 @@
 							<span class="article-detail-place label secondary uppercase"></span>
 						</div>
 						<div id="qr-modal" class="reveal-modal" data-reveal>
-							<h2>Hier dein Link zu dem Angebot. Viel Spaß damit!</h2>
+							<h2>Hier dein Link zu dem Angebot.</br>Viel Spaß damit!</h2>
 							<p class="lead">Your couch.  It is mine.</p>
 							<p class="text-center"><img id="qr" src=""></p>
 							<a class="close-reveal-modal">&#215;</a>
