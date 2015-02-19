@@ -51,7 +51,7 @@ div.state-4{
 
 .back{
 	position: absolute;
-	top: 20px;
+	top: 30px;
 	left: 20px;
 	cursor: pointer;
 	width: 52px;
@@ -60,7 +60,7 @@ div.state-4{
 
 .forward{
 	position: absolute;
-	top: 700px;
+	top: 660px;
 	left: 657px;
 	cursor: pointer;
 	width: 52px;
@@ -180,7 +180,8 @@ div.state-4{
 	width: 1024px;
 	text-align: center;
 	font-size: 80px;
-	padding-bottom: 48px;
+	padding-bottom: 24px;
+	padding-top: 24px;
 }
 
 #article-list {

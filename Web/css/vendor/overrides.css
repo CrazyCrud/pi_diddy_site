@@ -1,6 +1,7 @@
 .reveal-modal{
 	position: fixed;
-	top: 6.25rem;
+	top: 25px !important;
+	max-width: 50rem !important;
 }
 
 .button{
