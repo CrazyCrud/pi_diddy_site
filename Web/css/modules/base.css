@@ -24,6 +24,8 @@ body{
 	width: 100%;
 	font-family: Roboto;
 	background: url('../../assets/img/background.png') repeat;
+	height: 768px;
+	overflow-y: hidden; 
 }
 
 h1, h2, h3, h4, h5, h6{

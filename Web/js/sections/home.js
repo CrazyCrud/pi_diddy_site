@@ -30,7 +30,7 @@ var Home = (function(){
 		    	e.preventDefault(); 
 		    },
 		    onmousedown: function(e){
-		    	if(e.button === 2){
+		    	if(e.button == 2){
 		    		return false;
 		    	}
 		    }
