@@ -3,7 +3,7 @@ var Home = (function(){
 	_maxDistance = 4.0,
 	_xRange = [2.2, -2.2],
 	_scrollSpeed = 100,
-	_resetTime = 5000,
+	_resetTime = 20000,
 	_resetId = -1,
 	_elements = {
 		html: $("html"),
