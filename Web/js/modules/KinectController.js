@@ -178,7 +178,7 @@ var KinectController = (function(){
             output.xPosition = _.first(skeletons).x;
     		output.section = _distances[Math.round(output.closestDistance)];
     		output.numberOfPeople = numberOfPeople;
-
+            output.trackingId = _.first(skeletons).trackingId;
             FileWriter.write({
                 trackingId: _.first(skeletons).trackingId,
                 distance: output.closestDistance

@@ -5,6 +5,7 @@ var Home = (function(){
 	_scrollSpeed = 100,
 	_resetTime = 20000,
 	_resetId = -1,
+	_lastTrackingId = null,
 	_elements = {
 		html: $("html"),
 		body: $("body"),
@@ -25,8 +26,13 @@ var Home = (function(){
 		        e.preventDefault();
 		        e.stopPropagation();
 		    },
-		    'touchstart touchmove': function(e){
+		    'touchmove': function(e){
 		    	e.preventDefault(); 
+		    },
+		    onmousedown: function(e){
+		    	if(e.button === 2){
+		    		return false;
+		    	}
 		    }
 		});
 		$(document).on("newDistance", onKinect);
@@ -41,12 +47,14 @@ var Home = (function(){
 			changeToState(currentState + 1);
 		});
 		_elements.qr.click(function(event) {
-			FileWriter.write({
-                qr: 1
-            });
+			
 		});
 		_elements.html.click(function(event) {
 			setTimer();
+			FileWriter.write({
+                qr: 1,
+                trackingId: _lastTrackingId
+            });
 		});
 	},
 	onKinect = function(event, data){
@@ -54,22 +62,27 @@ var Home = (function(){
 		var isInteractive = _elements.index.hasClass('interactive');
 		switch(data.section){
 			case "CLOSEST":
+				_lastTrackingId = data.trackingId;
 				if(isInteractive){
 					changeToState(4);
 				}
 				break;
 			case "CLOSE":
+				_lastTrackingId = data.trackingId;
 				if(isInteractive){
 					changeToState(3);
 				}
 				break;
 			case "FAR":
+				_lastTrackingId = data.trackingId;
 				if(isInteractive){
 					changeToState(2);
 				}
 				break;
 			case "FAREST":
+				_lastTrackingId = data.trackingId;
 				if(isInteractive){
+					// reset horizontal scroll
 					changeToState(1);
 				}
 				break;

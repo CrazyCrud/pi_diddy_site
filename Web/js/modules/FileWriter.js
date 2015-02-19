@@ -8,7 +8,7 @@ var FileWriter = (function(){
 	},
 	onInitFileSystem = function(localStorage){
 		var date = new Date();
-		var fileName = date.getDate() + "_" + date.getMonth();
+		var fileName = date.getDate() + "_" + (date.getMonth() + 1);
 		localStorage.root.getFile(fileName + '.txt', {create: true, exclusive: false}, function(fileEntry){
 			_fileEntry = fileEntry;
 			_fileEntry.createWriter(function(fileWriter){
@@ -35,7 +35,7 @@ var FileWriter = (function(){
 			data.qr = data.qr || 0;
 			data.interactive = $(".index").hasClass('interactive')? 1: 0;
 			var date = new Date(),
-				timeStamp = date.getDate() + "-" + date.getSeconds(),
+				timeStamp = date.getDate() + "-" + date.getMinutes()  + "-" + date.getSeconds(),
 				row = timeStamp + ";" + data.interactive + ";" + data.trackingId + ";" + data.distance + ";" + data.qr,
 				blob = new Blob([row + '\n'], {type: 'text/plain'});
 			_fileWriter.seek(_fileWriter.length);
