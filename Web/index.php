@@ -39,9 +39,11 @@
 				<div id="article-list">
 					<div class="articles-container"></div>
 				</div>
+				<div class="scroll-button scroll-button-left"><a href="#" class=""><i class="fi-arrow-left"></i></a></div>
 				<div class="article-slider">
 					<div id="slider"></div>
 				</div>
+				<div class="scroll-button scroll-button-right"><a href="#" class=""><i class="fi-arrow-right"></i></a></div>
 				<div id="article-fade-left"></div>
 				<div id="article-fade-right"></div>
 			</div>

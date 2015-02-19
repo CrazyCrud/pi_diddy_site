@@ -41,7 +41,9 @@ var EbayView = {
 		articleDetailTime: $(".article-detail-time"),
 		articleDetailPlace: $(".article-detail-place"),
 		articleQR: $("#qr"),
-		loadingOverlay: $(".loading-overlay")
+		loadingOverlay: $(".loading-overlay"),
+		scrollButtonLeft: $(".scroll-button-left"),
+		scrollButtonRight: $(".scroll-button-right")
 	},
 
 	placeholderImage: 'assets/img/placeholder.jpg',
@@ -56,6 +58,7 @@ var EbayView = {
 
 	fillArticleList: function(articles){
 		$(".articles-container").empty();
+		var width = 350;
 		for(var i=0; i<articles.length; i++){
 			$(".articles-container").append(EbayView.createView(articles[i]));
 		}
@@ -72,10 +75,23 @@ var EbayView = {
 				//$(".articles-container").css('left', '-' + ui.value + 'px');
 			}
 		});
+
+		EbayView.elements.scrollButtonLeft.click(function(event) {
+			
+			var currentValue = $("#slider").slider("value");
+			console.log("Left " + currentValue);
+			$("#slider").slider("value", currentValue - width);
+		});
+		EbayView.elements.scrollButtonRight.click(function(event) {
+
+			var currentValue = $("#slider").slider("value");
+			console.log("Right " + currentValue);
+			$("#slider").slider("value", currentValue + width);
+		});
 	},
 
 	createView: function(article){
-		var info = {
+		var info = {	
 			url: article.url,
 			name: article.name,
 			location: article.location,

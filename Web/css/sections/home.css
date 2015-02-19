@@ -209,6 +209,33 @@ div.state-4{
 	height: 30px;
 }
 
+.scroll-button{
+	position: absolute;
+	display: block;
+	width: 52px;
+	height: 52px;
+	background: #999;
+	top: 630px;
+	text-align: center;
+	border-radius: 2px;
+}
+
+.scroll-button i{
+	display: block;
+	margin: 0 auto;
+	margin-top: 5px;
+	color: #eee;
+	font-size: 42px;
+}
+
+.scroll-button-left{
+	left: 100px;
+}
+
+.scroll-button-right{
+	right: 100px;
+}
+
 #article-fade-right {
 	height: 480px;
 	width: 128px;
