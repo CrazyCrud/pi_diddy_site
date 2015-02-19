@@ -46,7 +46,7 @@ var Home = (function(){
             });
 		});
 		_elements.html.click(function(event) {
-			clearTimer();
+			setTimer();
 		});
 	},
 	onKinect = function(event, data){
@@ -87,6 +87,7 @@ var Home = (function(){
 				_elements.index.attr("class", "index" + " change-to-state-" + state);
 			}
 		}
+		setTimer();
 	},
 	clearStates = function(){
 		if(_elements.index.hasClass('interactive')){
@@ -101,8 +102,13 @@ var Home = (function(){
 			_resetId = -1;
 		}
 	},
+	setTimer = function(){
+		if(_resetId < 0){
+			clearTimer();
+			_resetId = window.setTimeout(clearStates, _resetTime);
+		}
+	},
 	noSkeleton = function(){
-		_.resetId = window.setTimeout(clearStates, _resetTime);
 	},
 	changeInteractivity = function(){
 		if(_elements.index.hasClass('interactive')){
