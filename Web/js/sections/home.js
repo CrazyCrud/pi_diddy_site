@@ -116,10 +116,8 @@ var Home = (function(){
 		}
 	},
 	setTimer = function(){
-		if(_resetId < 0){
-			clearTimer();
-			_resetId = window.setTimeout(clearStates, _resetTime);
-		}
+		clearTimer();
+		_resetId = window.setTimeout(clearStates, _resetTime);
 	},
 	noSkeleton = function(){
 	},
