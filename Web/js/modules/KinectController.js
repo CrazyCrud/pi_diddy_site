@@ -8,7 +8,11 @@ var KinectController = (function(){
     	_engagedUser = null,
     	_primaryUser = null,
     	_frameRate = 200,
-    	_distances = ["ClOSEST", "CLOSE", "FAR", "FARTHEST"],
+        CLOSEST = 1.0,
+        CLOSE = 1.5,
+        FAR = 2.5,
+        FAREST = 3.0,
+    	_distances = ["ClOSEST", "CLOSE", "FAR", "FAREST"],
     	_configuration = {
 	    	"interaction" : {
 	        	"enabled": false,
@@ -174,9 +178,19 @@ var KinectController = (function(){
         var numberOfPeople = skeletons.length;
     	if(numberOfPeople > 0){
             skeletons = _.sortBy(skeletons, function(skeleton){return skeleton.z});
-            output.closestDistance = _.first(skeletons).z;
+            output.closestDistance = parseFloat(_.first(skeletons).z);
             output.xPosition = _.first(skeletons).x;
-    		output.section = _distances[Math.round(output.closestDistance)];
+    		//output.section = _distances[Math.round(output.closestDistance)];
+            if(output.closestDistance <= CLOSEST){
+                output.section = _distances[0];
+            }else if(output.closestDistance <= CLOSE && output.closestDistance > CLOSEST){
+                output.section = _distances[1];
+            }else if(output.closestDistance <= FAR && output.closestDistance > CLOSE){
+                output.section = _distances[2];
+            }else{
+                output.section = _distances[3];
+            } 
+            console.log("Section: " + output.section)
     		output.numberOfPeople = numberOfPeople;
             output.trackingId = _.first(skeletons).trackingId;
             FileWriter.write({
