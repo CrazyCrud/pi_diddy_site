@@ -24,6 +24,9 @@ var Home = (function(){
 		        }
 		        e.preventDefault();
 		        e.stopPropagation();
+		    },
+		    'touchstart touchmove': function(e){
+		    	e.preventDefault(); 
 		    }
 		});
 		$(document).on("newDistance", onKinect);
@@ -86,7 +89,6 @@ var Home = (function(){
 		}
 	},
 	clearStates = function(){
-		// Page reload here after 1 hour
 		if(_elements.index.hasClass('interactive')){
 			_elements.index.attr("class", "index interactive");
 		}else{
