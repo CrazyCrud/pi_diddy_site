@@ -343,8 +343,9 @@ div.state-4{
 }
 
 .state-4 .article-detail-description{
-	max-height: 280px;
+	max-height: 200px;
 	overflow: hidden;
+	overflow-y: scroll; 
 	text-overflow: ellipsis;
 	padding-bottom: 12px;
 }
