@@ -27,7 +27,11 @@ var Home = (function(){
 		        e.stopPropagation();
 		    },
 		    'touchmove': function(e){
+		    	if(e.target.id == 'article-detail-description'){
+		    		return;
+		    	}
 		    	e.preventDefault(); 
+		    	e.stopPropagation();
 		    },
 		    onmousedown: function(e){
 		    	if(e.button == 2){

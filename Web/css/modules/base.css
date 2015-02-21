@@ -84,3 +84,7 @@ strong{
 		4px 4px 0px #e5e5d5, 
 		7px 7px 0px rgba(30, 20, 20, 0.2);
 }
+
+::-webkit-scrollbar { 
+    display: none; 
+}

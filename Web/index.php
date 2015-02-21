@@ -57,7 +57,7 @@
 						<a href="#" id="generate-qr" class="button info" data-reveal-id="qr-modal">Artikel merken</a>
 						<div class="article-detail-main">
 							<h1></h1>
-							<blockquote class="article-detail-description"></blockquote>
+							<blockquote id="article-detail-description" class="article-detail-description"></blockquote>
 							<span class="article-detail-time label secondary uppercase"></span>
 							<span class="article-detail-place label secondary uppercase"></span>
 						</div>
