@@ -113,6 +113,7 @@ var Home = (function(){
 		setTimer();
 	},
 	clearStates = function(){
+		$(".reveal-modal").foundation('reveal', 'close');
 		if(_elements.index.hasClass('interactive')){
 			_firstTouch = false;
 			_elements.index.attr("class", "index interactive");

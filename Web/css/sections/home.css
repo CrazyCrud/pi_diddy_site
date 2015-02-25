@@ -47,11 +47,11 @@ div[class^='state'], div[class*=' state']{
 }
 
 .interactive .state-1 .forward{
-	display: none;
+	display: block;
 }
 
 .interactive .state-2 .forward{
-	display: none;
+	display: block;
 }
 
 div.state-4{
