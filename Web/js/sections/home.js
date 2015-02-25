@@ -6,6 +6,7 @@ var Home = (function(){
 	_resetTime = 20000,
 	_resetId = -1,
 	_lastTrackingId = null,
+	_firstTouch = false,
 	_elements = {
 		html: $("html"),
 		body: $("body"),
@@ -13,7 +14,8 @@ var Home = (function(){
 		back: $(".back"),
 		forward: $(".forward"),
 		movingElement: $("#moving-element"),
-		qr: $("#generate-qr")
+		qr: $("#generate-qr"),
+		touch: $(".tap-container")
 	};
 
 	var init = function(){
@@ -103,11 +105,16 @@ var Home = (function(){
 			}else{
 				_elements.index.attr("class", "index" + " change-to-state-" + state);
 			}
+			if(state == 3 && _firstTouch == false){
+				_elements.touch.addClass('visible');
+				_firstTouch = true;
+			}
 		}
 		setTimer();
 	},
 	clearStates = function(){
 		if(_elements.index.hasClass('interactive')){
+			_firstTouch = false;
 			_elements.index.attr("class", "index interactive");
 		}else{
 			_elements.index.attr("class", "index");
@@ -121,9 +128,10 @@ var Home = (function(){
 	},
 	setTimer = function(){
 		clearTimer();
-		_resetId = window.setTimeout(clearStates, _resetTime);
+		//_resetId = window.setTimeout(clearStates, _resetTime);
 	},
 	noSkeleton = function(){
+		//setTimer();
 	},
 	changeInteractivity = function(){
 		if(_elements.index.hasClass('interactive')){

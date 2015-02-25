@@ -46,6 +46,17 @@
 				<div class="scroll-button scroll-button-right"><a href="#" class=""><i class="fi-arrow-right"></i></a></div>
 				<div id="article-fade-left"></div>
 				<div id="article-fade-right"></div>
+				<div class="tap-container">
+					<div id="tag-glyph">
+
+					</div>
+					<div id="tag-glyph-ring">
+
+					</div>
+					<div id="gesture">
+						<img src="assets/icons/tap_gesture.png">
+					</div>
+				</div>
 			</div>
 			<div class="state-4">
 				<div class="back uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-left"></i></a></div>
