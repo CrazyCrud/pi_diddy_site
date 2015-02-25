@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 	<head>
 		<title></title>
 		<meta charset="utf-8">
@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/sections/home.css">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	</head>
-	<body>
+	<body oncontextmenu="return false;">
 		<div class="index <?php if(isset($_GET["interactive"])){echo "interactive";} ?>">
 			<div class="state-1">
 				<div class="forward uppercase"><a href="#" class="button tiny secondary"><i class="fi-arrow-down"></i></a></div>
