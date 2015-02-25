@@ -79,13 +79,11 @@ var EbayView = {
 		EbayView.elements.scrollButtonLeft.click(function(event) {
 			
 			var currentValue = $("#slider").slider("value");
-			console.log("Left " + currentValue);
 			$("#slider").slider("value", currentValue - width);
 		});
 		EbayView.elements.scrollButtonRight.click(function(event) {
 
 			var currentValue = $("#slider").slider("value");
-			console.log("Right " + currentValue);
 			$("#slider").slider("value", currentValue + width);
 		});
 	},

@@ -109,6 +109,9 @@ var Home = (function(){
 				_elements.touch.addClass('visible');
 				_firstTouch = true;
 			}
+			if(state == 2 || state == 1){
+				$("#slider").slider("value", 0);
+			}
 		}
 		setTimer();
 	},
@@ -129,10 +132,10 @@ var Home = (function(){
 	},
 	setTimer = function(){
 		clearTimer();
-		//_resetId = window.setTimeout(clearStates, _resetTime);
+		_resetId = window.setTimeout(clearStates, _resetTime);
 	},
 	noSkeleton = function(){
-		//setTimer();
+		setTimer();
 	},
 	changeInteractivity = function(){
 		if(_elements.index.hasClass('interactive')){
