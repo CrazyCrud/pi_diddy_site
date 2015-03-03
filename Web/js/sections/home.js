@@ -3,7 +3,7 @@ var Home = (function(){
 	_maxDistance = 4.0,
 	_xRange = [2.2, -2.2],
 	_scrollSpeed = 100,
-	_resetTime = 20000,
+	_resetTime = 40000,
 	_resetId = -1,
 	_lastTrackingId = null,
 	_firstTouch = false,
@@ -135,7 +135,9 @@ var Home = (function(){
 		_resetId = window.setTimeout(clearStates, _resetTime);
 	},
 	noSkeleton = function(){
-		setTimer();
+		if(_resetId <0){
+			setTimer();
+		}
 	},
 	changeInteractivity = function(){
 		if(_elements.index.hasClass('interactive')){
