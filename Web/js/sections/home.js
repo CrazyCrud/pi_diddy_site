@@ -3,9 +3,10 @@ var Home = (function(){
 	_maxDistance = 4.0,
 	_xRange = [2.2, -2.2],
 	_scrollSpeed = 100,
-	_resetTime = 40000,
+	_resetTime = 20000,
 	_resetId = -1,
 	_lastTrackingId = null,
+	_firstTouch = false,
 	_elements = {
 		html: $("html"),
 		body: $("body"),
@@ -13,7 +14,8 @@ var Home = (function(){
 		back: $(".back"),
 		forward: $(".forward"),
 		movingElement: $("#moving-element"),
-		qr: $("#generate-qr")
+		qr: $("#generate-qr"),
+		touch: $(".tap-container")
 	};
 
 	var init = function(){
@@ -103,18 +105,26 @@ var Home = (function(){
 			}else{
 				_elements.index.attr("class", "index" + " change-to-state-" + state);
 			}
+			if(state == 3 && _firstTouch == false){
+				_elements.touch.addClass('visible');
+				_firstTouch = true;
+			}
+			if(state == 2 || state == 1){
+				$("#slider").slider("value", 0);
+			}
 		}
 		setTimer();
 	},
 	clearStates = function(){
+		$(".reveal-modal").foundation('reveal', 'close');
 		if(_elements.index.hasClass('interactive')){
+			_firstTouch = false;
 			_elements.index.attr("class", "index interactive");
 		}else{
 			_elements.index.attr("class", "index");
 		}
 	},
 	clearTimer = function(){
-console.log("Cleartimer", _resetId);
 		if(_resetId > 0){
 			window.clearTimeout(_resetId);
 			_resetId = -1;
@@ -125,9 +135,7 @@ console.log("Cleartimer", _resetId);
 		_resetId = window.setTimeout(clearStates, _resetTime);
 	},
 	noSkeleton = function(){
-if(_resetId < 0){console.log("*");	
-setTimer();
-}
+		setTimer();
 	},
 	changeInteractivity = function(){
 		if(_elements.index.hasClass('interactive')){
